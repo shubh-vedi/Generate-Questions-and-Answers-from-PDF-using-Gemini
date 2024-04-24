@@ -65,18 +65,15 @@ def user_input(user_question):
     print(response)
     st.write("Reply: ", response["output_text"])
 
+# This is the  sets up the Streamlit app. It configures the page title and header, and creates a sidebar for uploading PDF files. 
+#When the "Submit & Process" button is clicked, it extracts the text from the uploaded PDFs, splits the text into chunks, and creates the vector store. The user can then input a question (or use the default "Create Question Answers" prompt), and the app will generate and display the response.
 
-
-
-# main()
-# This is the main function that sets up the Streamlit app. It configures the page title and header, and creates a sidebar for uploading PDF files. When the "Submit & Process" button is clicked, it extracts the text from the uploaded PDFs, splits the text into chunks, and creates the vector store. The user can then input a question (or use the default "Create Question Answers" prompt), and the app will generate and display the response.
-def main():
-    st.set_page_config("Chat PDF")
-    st.header("Generate Questions and Answers from PDF using Gemini💁")
-    user_question = "Create Questions Answers with proper indentation"
-    if st.button("Generate Q&A"):
-        user_input(user_question)
-    with st.sidebar:
+st.set_page_config("Chat PDF")
+st.header("Generate Questions and Answers from PDF using Gemini💁")
+user_question = "Create Questions Answers with proper indentation"
+if st.button("Generate Q&A"):
+    user_input(user_question)
+with st.sidebar:
         st.title("Menu:")
         pdf_docs = st.file_uploader("Upload your PDF Files and Click on the Submit & Process Button", accept_multiple_files=True)
         if st.button("Submit & Process"):
@@ -86,5 +83,3 @@ def main():
                 get_vector_store(text_chunks)
             st.success("Done")
 
-if __name__ == "__main__":
-    main()
