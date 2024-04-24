@@ -21,7 +21,7 @@ Generate Questions and Answers from PDF using Gemini is a Streamlit application 
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/your-username/pdf-question-answer-generator.git
+   git Clone https://github.com/shubh-vedi/Generate-Questions-and-Answers-from-PDF-using-Gemini.git
     ```
 
 2. Navigate to the project directory:
